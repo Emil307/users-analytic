@@ -1,8 +1,13 @@
 import React from 'react';
-import { Text } from './styles';
+import {
+  Page,
+  Text,
+} from './styles';
 
 export const UsersPage: React.FC = () => {
   return (
-    <Text>UsersPage</Text>
+    <Page>
+      <Text>UsersPage</Text>
+    </Page>
   )
 }
