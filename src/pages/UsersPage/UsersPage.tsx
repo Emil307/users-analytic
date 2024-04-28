@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Page,
-  Text,
+  Content,
 } from './styles';
 import { Header } from '@/widgets';
 
@@ -9,7 +9,9 @@ export const UsersPage: React.FC = () => {
   return (
     <Page>
       <Header/>
-      <Text>UsersPage</Text>
+      <Content>
+        
+      </Content>
     </Page>
   )
 }
