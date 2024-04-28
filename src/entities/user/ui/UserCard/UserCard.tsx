@@ -1,7 +1,26 @@
 import React from 'react';
+import { IUser } from '@/shared';
+import {
+  Container,
+  Summary,
+  SummaryImage,
+  SummaryText,
+} from './styles';
 
-export const UserCard: React.FC = () => {
+export interface UserCardProps {
+  user: IUser;
+}
+
+export const UserCard: React.FC<UserCardProps> = ({ user }) => {
   return (
-    <div>UserCard</div>
+    <Container>
+      <Summary>
+        <SummaryImage
+          src={user.picture.medium}
+          alt={`${user.name.first} ${user.name.last}`}
+        />
+        <SummaryText></SummaryText>
+      </Summary>
+    </Container>
   )
 }
