@@ -8,6 +8,7 @@ export const Container = styled.div`
     padding: 24px; 
     background: var(--bg-gray);
     border-radius: 1rem;
+    height: 100%;
 `;
 
 export const Total = styled.h1`
