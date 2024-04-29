@@ -10,4 +10,8 @@ export const Page = styled.main`
     background-color: var(--main-black);
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+    height: fit-content:
+    max-height: calc(100vh - 52px - 1.5rem);
+    overflow: auto;
+`;
