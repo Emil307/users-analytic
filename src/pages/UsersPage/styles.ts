@@ -11,7 +11,6 @@ export const Page = styled.main`
 `;
 
 export const Content = styled.div`
-    height: fit-content:
-    max-height: calc(100vh - 52px - 1.5rem);
-    overflow: auto;
+    display: flex;
+    height: 100%;
 `;

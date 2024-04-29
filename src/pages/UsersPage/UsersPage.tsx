@@ -3,9 +3,12 @@ import {
   Page,
   Content,
 } from './styles';
-import { Header } from '@/widgets';
+import {
+  Header,
+  UsersGrid,
+  Analytic
+} from '@/widgets';
 import { getUsers } from '@/entities/user';
-import { UsersGrid} from '@/widgets';
 import { useQuery } from '@tanstack/react-query';
 
 export const UsersPage: React.FC = () => {
@@ -16,6 +19,7 @@ export const UsersPage: React.FC = () => {
       <Header/>
       <Content>
         <UsersGrid/>
+        <Analytic/>
       </Content>
     </Page>
   )
