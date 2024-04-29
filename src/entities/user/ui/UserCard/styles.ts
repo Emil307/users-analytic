@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    position: relative;
+    border-radius: 1rem;
+`;
+
+export const SelectButton = styled.button`
     display: flex
     flex-direction: column;
     gap: 1rem;
     width: 332px;
     padding: 1.25rem;
-    border-radius: 1rem;
     background: var(--bg-gray);
+    border-radius: 1rem;
 `;
 
 export const Summary = styled.div`
@@ -27,6 +32,31 @@ export const SummaryText = styled.div`
     gap: .5rem;
 `;
 
+export const Name = styled.h2`
+    font-size: var(--lg-text);
+    line-height: 1.5rem;
+    font-weight: 600;
+    text-align: left;
+`;
+
+export const Email = styled.p`
+    font-size: var(--sm-text);
+    line-height: 1.25rem;
+    font-weight: 500;
+    color: var(--main-white);
+`;
+
 export const Details = styled.div`
 
+`;
+
+export const DeleteButton = styled.button`
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 1rem 0 1rem;
 `;

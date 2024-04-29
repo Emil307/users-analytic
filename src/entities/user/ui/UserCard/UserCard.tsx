@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IUser } from '@/shared';
 import {
   Container,
+  SelectButton,
   Summary,
   SummaryImage,
   SummaryText,
+  Name,
+  Email,
+  DeleteButton,
 } from './styles';
 
 export interface UserCardProps {
@@ -12,15 +16,43 @@ export interface UserCardProps {
 }
 
 export const UserCard: React.FC<UserCardProps> = ({ user }) => {
+  const [isSelected, setIsSelected] = useState<boolean>(false);
+
+  function changeSelect() { 
+    setIsSelected(!isSelected);
+  }
+
   return (
-    <Container>
-      <Summary>
-        <SummaryImage
-          src={user.picture.medium}
-          alt={`${user.name.first} ${user.name.last}`}
-        />
-        <SummaryText></SummaryText>
-      </Summary>
+    <Container
+      style={{
+        outline: isSelected ? '1px solid var(--border-orange)' : ''
+      }}
+    >
+      <SelectButton
+        onClick={changeSelect}
+      >
+        <Summary>
+          <SummaryImage
+            src={user.picture.medium}
+            alt={`${user.name.first} ${user.name.last}`}
+          />
+          <SummaryText>
+            <Name
+              style={{
+                color: isSelected ? 'var(--main-orange)' : 'var(--main-white)'
+              }}            
+            >
+              {user.name.first} {user.name.last}
+            </Name>
+            <Email>{user.email}</Email>
+          </SummaryText>
+        </Summary>
+      </SelectButton>
+      {isSelected &&
+        <DeleteButton>
+          удалить
+        </DeleteButton>
+      }
     </Container>
   )
 }
