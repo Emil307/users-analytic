@@ -1,0 +1,1 @@
+export { calcAnalytic } from "./lib";
