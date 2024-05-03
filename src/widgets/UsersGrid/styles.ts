@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Grid = styled.div`
-    width: 100%;
+    width: calc(100vw - 64px - 16px - 332px);
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, 332px);

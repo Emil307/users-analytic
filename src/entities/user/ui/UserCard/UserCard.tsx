@@ -8,6 +8,7 @@ import {
   SummaryText,
   Name,
   Email,
+  Details,
   DeleteButton,
 } from './styles';
 
@@ -47,6 +48,9 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
             <Email>{user.email}</Email>
           </SummaryText>
         </Summary>
+        <Details>
+
+        </Details>
       </SelectButton>
       {isSelected &&
         <DeleteButton>

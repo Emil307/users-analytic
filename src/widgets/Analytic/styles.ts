@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 332px;
+    min-width: 332px;
     display: flex;
     flex-direction: column;
     gap: 24px;
