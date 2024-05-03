@@ -14,6 +14,7 @@ import {
   Column,
   Value,
 } from './styles';
+import usersStore from '@/entities/user/store/usersStore';
 
 export interface UserCardProps {
   user: IUser;
@@ -26,6 +27,10 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
     setIsSelected(!isSelected);
   }
 
+  function handleDelete() {
+    usersStore.deleteUser(user.email);
+  }
+  
   return (
     <Container
       style={{
@@ -65,8 +70,8 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
         </Details>
       </SelectButton>
       {isSelected &&
-        <DeleteButton>
-          удалить
+        <DeleteButton onClick={handleDelete}>
+          <img src="trash.svg" alt="delete" />
         </DeleteButton>
       }
     </Container>

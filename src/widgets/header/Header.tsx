@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Container,
 } from './style';
@@ -6,18 +6,37 @@ import {
     Button,
     Input,
 } from '@/shared';
-import { useQuery } from '@tanstack/react-query';
+import { getUsers } from '@/entities/user';
+import usersStore from '@/entities/user/store/usersStore';
 
 export const Header: React.FC = () => {
-  const query = useQuery({ queryKey: ['users'] });
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  useEffect(() => {
+    usersStore.search(searchTerm);
+  }, [searchTerm])
 
   function handleRefetch() {
-    query.refetch();
+    usersStore.setIsLoading(true);
+    getUsers()
+      .then((res) => {
+        usersStore.setUsers(res.data.results);
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+      .finally(() => {
+        usersStore.setIsLoading(false);
+      })
   }
 
   return (
     <Container>
-      <Input placeholder='Search'/>
+      <Input
+        placeholder='Search'
+        value={searchTerm}
+        onChange={event => setSearchTerm(event.target.value)}
+      />
       <Button onClick={handleRefetch}>Refresh Users</Button>
     </Container>
   )

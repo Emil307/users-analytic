@@ -1,17 +1,18 @@
 import React from 'react';
 import { UserCard } from '@/entities/user';
-import { useQuery } from '@tanstack/react-query';
 import { IUser } from '@/shared';
 import { Grid } from './styles';
 import { Skeleton } from "@chakra-ui/skeleton";
 
-export const UsersGrid: React.FC = () => {
-  const query = useQuery<any>({ queryKey: ['users'] });
+export interface UsersGridProps {
+  users: IUser[];
+  isLoading: boolean;
+}
 
-  console.log(query.isLoading);
+export const UsersGrid: React.FC<UsersGridProps> = ({ users, isLoading }) => {
   return (
     <Grid>
-      {query.isLoading && 
+      {isLoading && 
         <>
           <Skeleton
             startColor='var(--bg-gray)'
@@ -79,7 +80,7 @@ export const UsersGrid: React.FC = () => {
         </>
       }
       <Grid>
-        {query.data?.data.results?.map((user: IUser) =>
+        {users.map((user: IUser) =>
           <UserCard
             user={user}
             key={new Date(user?.registered?.date).getTime()}

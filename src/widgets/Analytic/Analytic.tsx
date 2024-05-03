@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import {
   Container,
   Total,
@@ -11,10 +10,13 @@ import {
   Value,
 } from './styles';
 import { calcAnalytic } from '@/fetures/analytic';
+import { IUser } from '@/shared';
 
-export const Analytic: React.FC = () => {
-  const query = useQuery<any>({ queryKey: ['users'] });
+export interface AnalyticProps {
+  users: IUser[];
+}
 
+export const Analytic: React.FC<AnalyticProps> = ({ users }) => {
   const [analytic, setAnalytic] = useState({
     maleCount: 0,
     femaleCount: 0,
@@ -26,13 +28,13 @@ export const Analytic: React.FC = () => {
   })
 
   useEffect(() => {
-    const analytic = calcAnalytic(query.data?.data.results);
+    const analytic = calcAnalytic(users);
     setAnalytic(analytic);
-  }, [query.data])
+  }, [users])
 
   return (
     <Container>
-      <Total>{query.data?.data.results.length} Users</Total>
+      <Total>{users.length} Users</Total>
       <Section>
         <SectionTitle>Age Groups</SectionTitle>
         <Columns>
