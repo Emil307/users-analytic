@@ -1,0 +1,72 @@
+import React from 'react';
+import { Skeleton } from '@chakra-ui/skeleton';
+
+export const GridSkeleton: React.FC = () => {
+  return (
+    <>
+          <Skeleton
+            startColor='var(--bg-gray)'
+            endColor='var(--main-black)'
+            width='332px'
+            height='196px'
+            borderRadius='16px'
+          />
+          <Skeleton
+            startColor='var(--bg-gray)'
+            endColor='var(--main-black)'
+            width='332px'
+            height='196px'
+            borderRadius='16px'
+          />
+          <Skeleton
+            startColor='var(--bg-gray)'
+            endColor='var(--main-black)'
+            width='332px'
+            height='196px'
+            borderRadius='16px'
+          />
+          <Skeleton
+            startColor='var(--bg-gray)'
+            endColor='var(--main-black)'
+            width='332px'
+            height='196px'
+            borderRadius='16px'
+          />
+          <Skeleton
+            startColor='var(--bg-gray)'
+            endColor='var(--main-black)'
+            width='332px'
+            height='196px'
+            borderRadius='16px'
+          />
+          <Skeleton
+            startColor='var(--bg-gray)'
+            endColor='var(--main-black)'
+            width='332px'
+            height='196px'
+            borderRadius='16px'
+          />
+          <Skeleton
+            startColor='var(--bg-gray)'
+            endColor='var(--main-black)'
+            width='332px'
+            height='196px'
+            borderRadius='16px'
+          />
+          <Skeleton
+            startColor='var(--bg-gray)'
+            endColor='var(--main-black)'
+            width='332px'
+            height='196px'
+            borderRadius='16px'
+          />
+          <Skeleton
+            startColor='var(--bg-gray)'
+            endColor='var(--main-black)'
+            width='332px'
+            height='196px'
+            borderRadius='16px'
+          />
+    </>
+  )
+}
