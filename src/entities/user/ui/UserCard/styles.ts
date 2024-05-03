@@ -47,7 +47,29 @@ export const Email = styled.p`
 `;
 
 export const Details = styled.div`
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+`;
 
+export const Column = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+`;
+
+export const Category = styled.h3`
+    text-align: left;
+    font-size: var(--xs-text);
+    line-height: 1.25rem;
+    color: var(--main-gray);
+`;
+
+export const Value = styled.p`
+    text-align: left;
+    font-size: var(--xs-text);
+    line-height: 1.25rem;
+    color: var(--main-white);
 `;
 
 export const DeleteButton = styled.button`

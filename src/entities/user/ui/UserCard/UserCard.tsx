@@ -10,6 +10,9 @@ import {
   Email,
   Details,
   DeleteButton,
+  Category,
+  Column,
+  Value,
 } from './styles';
 
 export interface UserCardProps {
@@ -49,7 +52,16 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
           </SummaryText>
         </Summary>
         <Details>
-
+          <Column>
+            <Category>Phone No</Category>
+            <Category>Birthday</Category> 
+            <Category>Address</Category>    
+          </Column>
+          <Column>
+            <Value>{user.phone}</Value>
+            <Value>{user.dob.date}</Value> 
+            <Value>{user.location.city} {user.location.state} {user.location.country}</Value>
+          </Column>
         </Details>
       </SelectButton>
       {isSelected &&
