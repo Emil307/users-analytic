@@ -92,7 +92,10 @@ export const DeleteButton = styled.button`
     right: 0;
     z-index: 10;
     display: flex;
+    width: 44px;
+    height: 44px;
     align-items: center;
     justify-content: center;
     border-radius: 0 1rem 0 1rem;
+    border: 1px solid var(--border-red);
 `;

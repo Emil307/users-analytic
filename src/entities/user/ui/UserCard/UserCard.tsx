@@ -71,7 +71,7 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
       </SelectButton>
       {isSelected &&
         <DeleteButton onClick={handleDelete}>
-          <img src="trash.svg" alt="delete" />
+          <img src="/icons/delete.svg" alt="delete" />
         </DeleteButton>
       }
     </Container>
