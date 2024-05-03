@@ -37,6 +37,10 @@ export const Name = styled.h2`
     line-height: 1.5rem;
     font-weight: 600;
     text-align: left;
+    width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 export const Email = styled.p`
@@ -44,6 +48,11 @@ export const Email = styled.p`
     line-height: 1.25rem;
     font-weight: 500;
     color: var(--main-white);
+    text-align: left;
+    width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 export const Details = styled.div`
@@ -70,6 +79,11 @@ export const Value = styled.p`
     font-size: var(--xs-text);
     line-height: 1.25rem;
     color: var(--main-white);
+    text-align: left;
+    width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 export const DeleteButton = styled.button`
