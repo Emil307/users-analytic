@@ -8,6 +8,7 @@ import {
 } from '@/shared';
 import { getUsers } from '@/entities/user';
 import usersStore from '@/entities/user/store/usersStore';
+import toast, { Toaster } from 'react-hot-toast';
 
 export const Header: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -23,7 +24,19 @@ export const Header: React.FC = () => {
         usersStore.setUsers(res.data.results);
       })
       .catch((e) => {
-        console.log(e);
+        switch(e.response.status) {
+          case 429:
+            toast.error('Вы отправляете слишком много запросов');
+            break
+          case 404:
+            toast.error('Страница не найдена');
+            break
+          case 500:
+            toast.error('Ошибка сервера...');
+            break
+          default:
+            toast.error('Неизвестная ошибка, мы уже работаем над ее устранением');
+        }
       })
       .finally(() => {
         usersStore.setIsLoading(false);
@@ -31,13 +44,18 @@ export const Header: React.FC = () => {
   }
 
   return (
-    <Container>
-      <Input
-        placeholder='Search'
-        value={searchTerm}
-        onChange={event => setSearchTerm(event.target.value)}
+    <>
+      <Container>
+        <Input
+          placeholder='Search'
+          value={searchTerm}
+          onChange={event => setSearchTerm(event.target.value)}
+        />
+        <Button onClick={handleRefetch}>Refresh Users</Button>
+      </Container>
+      <Toaster
+        position="top-center"
       />
-      <Button onClick={handleRefetch}>Refresh Users</Button>
-    </Container>
+    </>
   )
 }
