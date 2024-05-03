@@ -64,7 +64,7 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
           </Column>
           <Column>
             <Value>{user.phone}</Value>
-            <Value>{user.dob.date}</Value> 
+            <Value>{new Date(user.dob.date).toLocaleDateString()}</Value> 
             <Value>{user.location.city} {user.location.state} {user.location.country}</Value>
           </Column>
         </Details>

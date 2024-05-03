@@ -34,7 +34,7 @@ class UsersState {
       const isName = (user.name.first + user.name.last + user.name.last).includes(term);
       const isEmail = user.email.includes(term);
       const isPhone = user.phone.includes(term);
-      const isDOB = false;
+      const isDOB = new Date(user.dob.date).toLocaleDateString().includes(term);
       const isAdress = (
         user.location.city + user.location.state + user.location.country
       ).includes(term);
